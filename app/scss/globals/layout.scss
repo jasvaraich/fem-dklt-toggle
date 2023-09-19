@@ -1,0 +1,31 @@
+@use "../util" as *;
+
+.container {
+    padding: 0 rem(25);
+    max-width: rem(1110);
+    margin: 0 auto rem(46);
+    @include breakpoint(large) {
+        padding: 0;
+    }
+}
+
+.header.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    @include breakpoint(medium){
+        justify-content: space-between;
+    }
+    @include breakpoint(large){
+        justify-content: space-between;
+    }
+  }
+
+.visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

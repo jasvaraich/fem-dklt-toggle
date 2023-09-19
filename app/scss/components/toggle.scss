@@ -1,0 +1,68 @@
+@use "../util" as *;
+
+.toggle {
+  border: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr rem(48);
+  gap: rem(10);
+  
+  legend {
+    font-size: rem(14);
+    font-weight: 700;
+    display: inline-block;
+  }
+
+  &__wrapper {
+    height: rem(24);
+    position: relative;
+    }
+
+  input[type="radio"] {
+    opacity: 0;
+    margin: 0 rem(-2) 0 rem(-2);
+    width: rem(20);
+    height: rem(24);
+
+    &:focus ~ .toggle__button {
+      border: 2px solid white;
+    }
+  }
+
+  &__background {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    display: block;  
+    border-radius: rem(12);
+    background: linear-gradient(225deg, var(--toggledark-bg-end) 0%, var(--toggledark-bg-start) 98.02%);
+    pointer-events: none;
+  }
+
+  &__button {
+    position: absolute;
+    left: rem(3);
+    right: 100%;
+    top: rem(3);
+    background-color: var(--dark-bg);
+    width: rem(18);
+    height: rem(18);
+    border-radius: 50%;
+    transition: all 150ms ease-in-out;
+  }
+
+  #light:checked ~ .toggle__button {
+    left: auto;
+    right: 3px;
+  }
+  #system:checked ~ .toggle__button {
+    left: 50%;
+    right:auto;
+    transform: translate(-50%);
+    
+  }
+  
+
+}
+
